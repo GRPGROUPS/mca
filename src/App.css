@@ -1,0 +1,343 @@
+/* Global */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #2486e8, #022a52);
+  margin: 0;
+  padding: 0;
+  color: #333;
+  min-height: 100vh;
+  min-width: 100vw;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: rgba(255,255,255,0.92); /* Light overlay for all pages except login */
+  /* Optional: add scroll if content overflows */
+  overflow: auto;
+}
+
+h1 {
+  text-align: center;
+  color: #222;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-bottom: 10px;
+  color: #444;
+}
+
+/* Header Bar */
+.header-bar {
+  display: flex;
+  justify-content: center;   /* center items */
+  align-items: center;
+  padding: 24px 32px 0 32px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;        /* allow right-aligned button group */
+}
+
+.header-bar h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #222;
+  flex-grow: 1;
+  text-align: center;        /* ensure Money Manager stays centered */
+}
+
+.header-buttons {
+  position: absolute;
+  right: 32px;               /* stick buttons to the right side */
+  display: flex;
+  gap: 12px;                 /* spacing between Admin & Logout */
+}
+
+
+.logout-btn {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-left:10px;
+  
+}
+
+.logout-btn:hover {
+  background: #b52a37;
+}
+
+.admin-btn {
+  background: #007bff;   /* blue background */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 32px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.admin-btn:hover {
+  background: #0056b3;   /* darker blue on hover */
+}
+
+
+/* Summary Box */
+.summary {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.summary-title,
+.summary h2,
+.summary-heading {
+  font-size: 2rem !important;
+  font-weight: bold;
+  margin-right: 24px;
+  color: #333;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.summary p {
+  background: #f8f9fa;
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.income {
+  color: #28a745;
+}
+
+.expense {
+  color: #dc3545;
+}
+
+.balance {
+  color: #007bff;
+}
+
+/* Forms */
+.form {
+  background: #fdfdfd;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin: 0 auto;
+  max-width: 350px;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form input,
+form select,
+form button {
+  width: 100%;
+  min-width: 220px;
+  max-width: 300px;
+  height: 44px;
+  padding: 0 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+  box-sizing: border-box;
+  background: #fff;
+  color: #111;
+}
+
+/* Make select dropdowns look proportional and consistent */
+.form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: #fff url("data:image/svg+xml;utf8,<svg fill='gray' height='18' viewBox='0 0 24 24' width='18' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>") no-repeat right 12px center/18px 18px;
+  padding-right: 36px;
+}
+
+form input::placeholder {
+  color: #888;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+}
+
+form input:focus,
+form select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.2);
+}
+
+form button {
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  height: 44px;
+  width: 100%;
+  min-width: 220px;
+  max-width: 300px;
+}
+
+form button:hover {
+  background: #0056b3;
+}
+
+/* Transaction List */
+.list {
+  margin-top: 25px;
+}
+
+.list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background: #f8f9fa;
+  font-size: 0.95rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.list li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.list li.income {
+  border-left: 5px solid #28a745;
+  color: #28a745;
+}
+
+.list li.expense {
+  border-left: 5px solid #dc3545;
+  color: #dc3545;
+}
+
+/* Login/Register Links */
+.form p {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.form p button {
+  background: none;
+  color: #007bff;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
+.form p button:hover {
+  color: #0056b3;
+}
+
+/* Hide number input spinner/arrows for all browsers */
+.form input[type="number"]::-webkit-inner-spin-button,
+.form input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.form input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Main Content Layout */
+.main-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 32px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 0 24px 0; /* Increased top padding to push both boxes down */
+  box-sizing: border-box;
+}
+
+.main-content > .form {
+  max-width: 350px;
+  flex: 0 0 350px;
+  align-self: flex-start;
+  margin-top: 40px; /* Push Add Transaction box further down */
+}
+
+.main-content > .chart-container {
+  flex: 1 1 600px;
+  min-width: 400px;
+  max-width: 700px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 40px; /* Match Add Transaction vertical position */
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 900px) {
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .main-content > .chart-container,
+  .main-content > .form {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* Only for login/register page, override .container background */
+body.login-bg .container {
+  background: transparent !important;
+}
+
+
+
